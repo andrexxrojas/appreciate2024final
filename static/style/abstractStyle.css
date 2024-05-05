@@ -33,12 +33,20 @@ body{
     overflow-x: clip !important;
 
     /* Margin will be changed to fit tablet and phone view */
-    margin: 0 144px; 
 
     background-color: var(--bgClr);
     color: var(--fontClr);
 
-    padding-bottom: 40px;
+    /* padding-bottom: 40px; */
+
+    background-image: url("../img/MAIN\ BG\ 1.png"), url("../img/MAIN\ BG\ 2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top, center, bottom;
+}
+
+.container{
+    margin: 0 140px;
 }
 
 /* Navigation */
@@ -211,12 +219,8 @@ header.active .mobileNavContainer{
 }
 
 .tags{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    /* grid-template-rows: repeat(5, minmax(100px, 1fr)); */
-    grid-column-gap: 24px;
-    grid-row-gap: 32px;
-    place-items: center;
+    display: flex;
+    column-gap: 24px;
     max-width: 1300px;
     width: 100%;
     user-select: none;
@@ -344,14 +348,117 @@ header.active .mobileNavContainer{
     border: none;
 }
 
-@media (max-width: 1700px){
-    .boxGrid{
-        grid-template-columns: repeat(2, 1fr);
+.paginationButtons .page-btn.inactive i{
+    color: #B0B0B0;
+}
+
+.paginationButtons .page-btn:not(.inactive){
+    cursor: pointer;
+}
+
+/* Footer */
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 160px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.footer h4{
+    font-family: "Quantify";
+    font-weight: 500;
+    font-size:200px;
+    margin: 0;
+}
+
+#footerLogo{
+    height: 100%;
+}
+
+.footerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    margin: 0 20px;
+    gap: 135px;
+    width: 100%;
+}
+
+.socialMedia, .email{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.socialMedia p, .email p{
+    text-align: center;
+}
+
+.email p:nth-child(2){
+    font-weight: 500;
+}
+
+.footer hr{
+    width: 100%;
+    max-width: 1100px;
+    height: 4px;
+    background: #FFFFFF;
+    outline: none;
+    border: none;
+}
+
+.footer p:not(:nth-child(2)){
+    font-family: "MontserratBold";
+}
+
+.footer p:nth-child(2){
+    font-family: "MontserratRegular";
+}
+
+#waveTop{
+    position: absolute;
+    top: -40px;
+    width: 100%;
+    max-height: 50%;
+    object-fit: cover;
+    overflow: visible;
+    z-index: -1;
+}
+
+#waveBottom{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    max-height: 50%;
+    object-fit: cover;
+    overflow: visible;
+    z-index: -1;
+}
+
+@media (max-width: 1600px){
+    .footer h4{
+        font-size: 160px;
+    }
+}
+
+@media (max-width: 1400px){
+    .footer h4{
+        font-size: 130px;
+    }
+}
+
+@media (max-width: 1250px){
+    .footer h4{
+        font-size: 110px;
     }
 }
 
 @media (max-width: 1200px){
-    body{
+    .container{
         margin: 0 50px;
     }
 
@@ -370,26 +477,6 @@ header.active .mobileNavContainer{
     .titleContainer h1{
         font-size: 110px;
     }
-
-    .tags{
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        grid-template-rows: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 1000px){
-
-/* .tags{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    /* grid-template-rows: repeat(5, minmax(100px, 1fr)); 
-    grid-column-gap: 24px;
-    place-items: center;
-    max-width: 1300px;
-    width: 100%;
-    user-select: none;
-    margin-bottom: 80px;
-} */
 }
 
 @media (max-width: 980px){
@@ -399,7 +486,7 @@ header.active .mobileNavContainer{
 }
 
 @media only screen and (max-width: 800px){
-    body{
+    .container{
         margin: 0 20px;
     }
 
@@ -411,16 +498,38 @@ header.active .mobileNavContainer{
         font-size: 54px;
     }
 
-    .tags{
-        display: grid;
-        grid-template-columns: 1fr;
+    .mobile-menu{
+        width: 200px;
     }
 
     .tag{
-        width: 212px;
+        max-width: 212px;
     }
 
-    .tag:not(:last-child){
-    margin-bottom: 24px;
+    .footerContainer{
+        margin-top: 36px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer h4{
+        text-align: center;
+        font-size: 100px;
+    }
+
+    #footerLogo{
+        width: 40%;
+    }
+
+    .tagContainer{
+        display: flex;
+        align-items: center;
+    }
+
+    .tags{
+        display: flex;
+        flex-direction: column;
+        row-gap: 24px;
+        max-width: 212px;
     }
 }
